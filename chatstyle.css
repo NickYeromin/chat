@@ -14,11 +14,11 @@ header{
     justify-content: space-around;
     border-bottom: 3px dashed #555;
 }
-header .user{
+header #username{
     flex: 1;
-    
+    border-radius: 25px 0 0 25px;    
 }
-header .message{
+header #textmessage{
  flex: 6;
 }
 header button{

@@ -3,7 +3,7 @@ const userName = document.querySelector('#username')
 const textMessage = document.querySelector('#textmessage')
 const btnSend = document.querySelector('#btnsend')
 
-function newMessage(username,textmessage){
+function NewMessage(username,textmessage){
     
     const message = document.createElement('div')
     const user = document.createElement('span')
@@ -24,13 +24,29 @@ function newMessage(username,textmessage){
     user.appendChild(date)
     message.appendChild(msg) 
 
-
 }
 function RandomUserName(){
     return `User${Math.round(Math.random()*99999)}`
 }
+    const listUser = ['Henry','Ann','Borys']
+    const listMsg = ['I love Ukraine','I want a live in Ukraine','Dobrij den everybody!']
+    const msgList = [listUser,listMsg]
 
-btnSend.addEventListener('click', () => {
+function DataBase(userName,textMessage){ // takes message in local database
+    return msgList.push[listUser.push(userName),listMsg.push(textMessage)]
+}
+function UpdateMsgScreen(){ // deletes all msg update screen chat
+    const msgElements = document.querySelectorAll('.message')
+    for (const msg of msgElements) { // remove all msg
+        msg.remove() 
+    }
+
+    for(i = 0; i < listUser.length; i++){// add new msg
+        NewMessage(listUser[i],listMsg[i])
+    }
+} 
+
+btnSend.addEventListener('click', () => { 
     if(userName.value === "" || textMessage.value === ""){
         if(userName.value === ""){
         userName.value = RandomUserName()
@@ -39,7 +55,7 @@ btnSend.addEventListener('click', () => {
         alert('Please, enter your message')
     }
     }else{
-        newMessage(userName.value,textMessage.value)
+        DataBase(userName.value,textMessage.value)
+        UpdateMsgScreen()
     }
 })
-
